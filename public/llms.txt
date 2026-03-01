@@ -1,0 +1,22 @@
+# Adrian Garcia — adriangg.dev
+
+## Who I am
+
+Adrian Garcia is a software engineer based in Spain. This site is a personal portfolio showcasing projects, skills, and contact information.
+
+## Pages
+
+- / — Home: introduction and highlights
+- /projects — Projects: a curated list of personal and professional projects
+- /about — About: bio, tech stack, and a downloadable CV
+- /contact — Contact: form and links to reach out
+
+## Tech stack
+
+This site is built with Astro, Tailwind CSS 4, TypeScript, and deployed on Cloudflare Workers.
+
+## Contact
+
+- GitHub: https://github.com/adriangargg
+- LinkedIn: https://linkedin.com/in/adriangargg
+- Site: https://adriangg.dev

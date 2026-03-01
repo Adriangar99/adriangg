@@ -1,0 +1,90 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-md">
+  <nav class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4" aria-label="Main navigation">
+    <a href="/" class="font-mono text-sm font-semibold text-white transition-colors hover:text-indigo-400">
+      adriangg.dev
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden items-center gap-6 sm:flex" role="list">
+      {navLinks.map(({ href, label }) => {
+        const isActive = href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+        return (
+          <li>
+            <a
+              href={href}
+              aria-current={isActive ? 'page' : undefined}
+              class:list={[
+                'text-sm transition-colors',
+                isActive
+                  ? 'text-white font-medium'
+                  : 'text-neutral-400 hover:text-white',
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+
+    <!-- Mobile nav toggle (visually present, JS optional) -->
+    <button
+      id="mobile-menu-toggle"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation menu"
+      class="sm:hidden text-neutral-400 hover:text-white transition-colors"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden sm:hidden border-t border-white/10 px-6 pb-4">
+    <ul class="flex flex-col gap-3 pt-4" role="list">
+      {navLinks.map(({ href, label }) => {
+        const isActive = href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+        return (
+          <li>
+            <a
+              href={href}
+              aria-current={isActive ? 'page' : undefined}
+              class:list={[
+                'block text-sm transition-colors',
+                isActive
+                  ? 'text-white font-medium'
+                  : 'text-neutral-400 hover:text-white',
+              ]}
+            >
+              {label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+</script>

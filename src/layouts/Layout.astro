@@ -1,23 +1,69 @@
+---
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+}
+
+const { title, description, image, type } = Astro.props;
+
+// JSON-LD structured data
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Adrian Garcia',
+  url: 'https://adriangg.dev',
+  sameAs: [
+    'https://github.com/adriangargar',
+    'https://linkedin.com/in/adriangargar',
+  ],
+  jobTitle: 'Software Developer',
+  description: 'Software developer passionate about building modern, performant web experiences.',
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Adrian Garcia — Portfolio',
+  url: 'https://adriangg.dev',
+  description: 'Personal portfolio of Adrian Garcia: projects, about me, and contact.',
+  author: {
+    '@type': 'Person',
+    name: 'Adrian Garcia',
+  },
+};
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+    <!-- SEO component handles title, description, OG, Twitter, sitemap link -->
+    <SEO title={title} description={description} image={image} type={type} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  </head>
+
+  <body class="bg-neutral-950 text-neutral-100 antialiased">
+    <Header />
+
+    <main id="main-content" class="mx-auto max-w-4xl px-6 pt-24 pb-16">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

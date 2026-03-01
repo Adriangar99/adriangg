@@ -1,0 +1,35 @@
+---
+const currentYear = new Date().getFullYear();
+
+const links = [
+  { href: 'https://github.com/adriangargar', label: 'GitHub', external: true },
+  { href: 'https://linkedin.com/in/adriangargar', label: 'LinkedIn', external: true },
+  { href: '/cv.pdf', label: 'CV', external: false },
+];
+---
+
+<footer class="border-t border-white/10 bg-neutral-950">
+  <div class="mx-auto max-w-4xl px-6 py-8">
+    <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
+      <p class="text-sm text-neutral-500">
+        &copy; {currentYear} Adrian Garcia. Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-white transition-colors">Astro</a>.
+      </p>
+
+      <nav aria-label="Social links">
+        <ul class="flex items-center gap-4" role="list">
+          {links.map(({ href, label, external }) => (
+            <li>
+              <a
+                href={href}
+                {...external ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
+                class="text-sm text-neutral-400 transition-colors hover:text-white"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>
