@@ -1,22 +1,46 @@
-# Adrian Garcia — adriangg.dev
+# Juan Adrián García García — adriangg.dev
 
-## Who I am
+## Quién soy
 
-Adrian Garcia is a software engineer based in Spain. This site is a personal portfolio showcasing projects, skills, and contact information.
+Juan Adrián García García es un desarrollador de software con más de 5 años de experiencia, con sede en Tenerife, España. Actualmente trabaja en Acid Tango S.L. como Software Developer. Este sitio es un portfolio personal que muestra proyectos, experiencia profesional e información de contacto.
 
-## Pages
+## Páginas
 
-- / — Home: introduction and highlights
-- /projects — Projects: a curated list of personal and professional projects
-- /about — About: bio, tech stack, and a downloadable CV
-- /contact — Contact: form and links to reach out
+- / — Inicio: introducción y aspectos destacados (español)
+- /about — Sobre mí: bio, experiencia laboral, formación y stack tecnológico
+- /projects — Proyectos: selección de proyectos personales y profesionales
+- /contact — Contacto: enlaces para ponerse en contacto
+- /en/ — Home (English version)
+- /en/about — About (English version)
+- /en/projects — Projects (English version)
+- /en/contact — Contact (English version)
 
-## Tech stack
+## Experiencia profesional
 
-This site is built with Astro, Tailwind CSS 4, TypeScript, and deployed on Cloudflare Workers.
+- **Acid Tango S.L.** (dic. 2021 – Presente): Desarrollo de la app iOS de Zara (Inditex) con Swift/SwiftUI/UIKit y SPMs. Contribución a Samsung Unfear para Android con Kotlin y Jetpack Compose. Frontend de backoffices web con Next.js. Aplica DDD, TDD y buenas prácticas.
+- **TECH Universidad Tecnológica** (oct. 2021 – dic. 2021): Aplicaciones web internas con Angular, TypeScript, Node.js.
+- **Itop Consulting** (sep. 2020 – oct. 2021): Micro frontends con Webpack 5 Module Federation, microservicios, React, Node.js, GraphQL, NestJS, PostgreSQL.
+- **Itop Consulting (Prácticas)** (jul. 2020 – ago. 2020): Prácticas profesionales en desarrollo web.
 
-## Contact
+## Formación
 
-- GitHub: https://github.com/adriangargg
-- LinkedIn: https://linkedin.com/in/adriangargg
-- Site: https://adriangg.dev
+- CIFP César Manrique (2018–2020): Técnico Superior en Desarrollo de Aplicaciones Web / Multiplataforma.
+
+## Stack tecnológico
+
+TypeScript, JavaScript, Swift, Kotlin, React, Next.js, Angular, SwiftUI, UIKit, Jetpack Compose, Node.js, NestJS, .NET Core, GraphQL, PostgreSQL, Git, Docker, AWS, CI/CD, Cloudflare, Vite, TDD, DDD, XCTest, Swift Testing, Jest, Vitest, Playwright, Cypress.
+
+## Proyectos destacados
+
+- **Zara iOS** (Acid Tango — Inditex): Desarrollo de nuevas funcionalidades y mejoras en el flujo de checkout de la app iOS de Zara. Implementación de Swift Package Modules (SPM) para aislar lógica de negocio y reutilizarla en otros proyectos de Inditex. Stack: Swift, SwiftUI, UIKit.
+- **Samsung Unfear** (Acid Tango — Samsung): Aplicación Android para personas con Trastorno del Espectro Autista (TEA) que gestiona la cancelación de ruido de los auriculares Galaxy Buds ante sonidos fuertes. Stack: Kotlin, Jetpack Compose.
+- **Backoffices web** (Acid Tango): Herramientas de gestión interna para clientes. Enfoque en accesibilidad, rendimiento y optimización de peticiones mediante caché. Stack: Next.js, TypeScript, React.
+- **adriangg.dev**: Portfolio personal bilingüe (ES/EN). Stack: Astro 5, TypeScript, Tailwind CSS 4, Cloudflare Workers. https://github.com/Adriangar99
+- **localizations-manager**: Herramienta de gestión de localizaciones para proyectos iOS. Stack: Swift. https://github.com/Adriangar99/localizations-manager
+
+## Contacto
+
+- GitHub: https://github.com/Adriangar99
+- LinkedIn: https://linkedin.com/in/juan-adrian-garcia-garcia
+- Email: adriangargar99@gmail.com
+- Sitio: https://adriangg.dev

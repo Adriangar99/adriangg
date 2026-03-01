@@ -3,6 +3,7 @@ import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { getLangFromUrl } from '../i18n/utils';
 
 interface Props {
   title: string;
@@ -12,36 +13,48 @@ interface Props {
 }
 
 const { title, description, image, type } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
 
 // JSON-LD structured data
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Adrian Garcia',
+  name: 'Juan Adrián García García',
   url: 'https://adriangg.dev',
   sameAs: [
-    'https://github.com/adriangargar',
-    'https://linkedin.com/in/adriangargar',
+    'https://github.com/Adriangar99',
+    'https://linkedin.com/in/juan-adrian-garcia-garcia',
   ],
   jobTitle: 'Software Developer',
-  description: 'Software developer passionate about building modern, performant web experiences.',
+  description:
+    lang === 'es'
+      ? 'Desarrollador de software con experiencia en frontend, backend y desarrollo móvil.'
+      : 'Software developer with experience in frontend, backend and mobile development.',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Acid Tango S.L.',
+  },
 };
 
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Adrian Garcia — Portfolio',
+  name: 'Juan Adrián García García — adriangg.dev',
   url: 'https://adriangg.dev',
-  description: 'Personal portfolio of Adrian Garcia: projects, about me, and contact.',
+  description:
+    lang === 'es'
+      ? 'Portfolio personal de Juan Adrián García García: proyectos, experiencia y contacto.'
+      : 'Personal portfolio of Juan Adrián García García: projects, experience and contact.',
   author: {
     '@type': 'Person',
-    name: 'Adrian Garcia',
+    name: 'Juan Adrián García García',
   },
+  inLanguage: lang === 'es' ? 'es-ES' : 'en-US',
 };
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -49,12 +62,12 @@ const websiteSchema = {
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- SEO component handles title, description, OG, Twitter, sitemap link -->
+    <!-- SEO component handles title, description, OG, Twitter, hreflang, sitemap link -->
     <SEO title={title} description={description} image={image} type={type} />
 
     <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
   </head>
 
   <body class="bg-neutral-950 text-neutral-100 antialiased">
