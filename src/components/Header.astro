@@ -39,7 +39,7 @@ const altHref = altLang === 'en'
 
 <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-md">
   <nav class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4" aria-label="Main navigation">
-    <a href={lang === 'en' ? '/en/' : '/'} class="font-mono text-sm font-semibold text-white transition-colors hover:text-purple-400">
+    <a href={lang === 'en' ? '/en/' : '/'} class="font-mono text-sm font-semibold text-white transition-colors hover:text-purple-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 rounded">
       adriangg.dev
     </a>
 
@@ -52,7 +52,7 @@ const altHref = altLang === 'en'
               href={href}
               aria-current={isActive(base) ? 'page' : undefined}
               class:list={[
-                'text-sm transition-colors',
+                'text-sm transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500',
                 isActive(base)
                   ? 'text-white font-medium'
                   : 'text-neutral-400 hover:text-white',
@@ -68,7 +68,7 @@ const altHref = altLang === 'en'
       <a
         href={altHref}
         aria-label={`Switch to ${altLang === 'en' ? 'English' : 'Español'}`}
-        class="font-mono text-xs text-neutral-500 transition-colors hover:text-white border border-white/10 rounded px-2 py-1 hover:border-white/30"
+        class="font-mono text-xs text-neutral-500 transition-colors hover:text-white border border-white/10 rounded px-2 py-1 hover:border-white/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
       >
         {altLang === 'en' ? 'EN' : 'ES'}
       </a>
@@ -80,7 +80,7 @@ const altHref = altLang === 'en'
       aria-expanded="false"
       aria-controls="mobile-menu"
       aria-label={t('nav.toggle')}
-      class="sm:hidden text-neutral-400 hover:text-white transition-colors"
+      class="sm:hidden text-neutral-400 hover:text-white transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
     >
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <line x1="3" y1="6" x2="21" y2="6"/>
@@ -99,7 +99,7 @@ const altHref = altLang === 'en'
             href={href}
             aria-current={isActive(base) ? 'page' : undefined}
             class:list={[
-              'block text-sm transition-colors',
+              'block text-sm transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500',
               isActive(base)
                 ? 'text-white font-medium'
                 : 'text-neutral-400 hover:text-white',
@@ -115,7 +115,8 @@ const altHref = altLang === 'en'
     <div class="mt-4 pt-4 border-t border-white/10">
       <a
         href={altHref}
-        class="font-mono text-xs text-neutral-500 transition-colors hover:text-white"
+        aria-label={`Switch to ${altLang === 'en' ? 'English' : 'Español'}`}
+        class="font-mono text-xs text-neutral-500 transition-colors hover:text-white rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
       >
         {altLang === 'en' ? '🌐 English' : '🌐 Español'}
       </a>
@@ -126,8 +127,32 @@ const altHref = altLang === 'en'
 <script>
   const toggle = document.getElementById('mobile-menu-toggle');
   const menu = document.getElementById('mobile-menu');
+
+  function openMenu() {
+    menu?.classList.remove('hidden');
+    toggle?.setAttribute('aria-expanded', 'true');
+    const firstLink = menu?.querySelector('a');
+    firstLink?.focus();
+  }
+
+  function closeMenu() {
+    menu?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.focus();
+  }
+
   toggle?.addEventListener('click', () => {
-    const isOpen = menu?.classList.toggle('hidden') === false;
-    toggle.setAttribute('aria-expanded', String(isOpen));
+    const isHidden = menu?.classList.contains('hidden');
+    if (isHidden) {
+      openMenu();
+    } else {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu?.classList.contains('hidden')) {
+      closeMenu();
+    }
   });
 </script>

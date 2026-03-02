@@ -7,12 +7,16 @@ interface Props {
   tags?: string[];
   image?: string;
   viewLabel?: string;
+  newTabLabel?: string;
 }
 
-const { title, description, url, company, tags = [], image, viewLabel = 'View project' } = Astro.props;
+const { title, description, url, company, tags = [], image, viewLabel = 'View project', newTabLabel = '(opens in new tab)' } = Astro.props;
 ---
 
-<article class="group flex flex-col gap-3 rounded-xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-purple-500/40 hover:bg-white/8">
+<article class:list={[
+  'group flex flex-col gap-3 rounded-xl border border-white/10 bg-white/5 p-5 transition-colors',
+  url ? 'hover:border-purple-500/40 hover:bg-white/8' : '',
+]}>
   {image && (
     <img
       src={image}
@@ -51,10 +55,11 @@ const { title, description, url, company, tags = [], image, viewLabel = 'View pr
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-1.5 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+        class="inline-flex items-center gap-1.5 text-sm text-purple-400 hover:text-purple-300 transition-colors rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
         aria-label={`${viewLabel}: ${title}`}
       >
         {viewLabel}
+        <span class="sr-only"> {newTabLabel}</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M7 7h10v10"/>
           <path d="M7 17 17 7"/>

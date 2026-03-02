@@ -15,6 +15,8 @@ export const ui = {
     'nav.about': 'Sobre mí',
     'nav.contact': 'Contacto',
     'nav.toggle': 'Abrir menú de navegación',
+    'nav.skip': 'Saltar al contenido principal',
+    'a11y.newTab': '(abre en nueva pestaña)',
 
     // Home
     'home.greeting': 'Hola, soy',
@@ -97,6 +99,8 @@ export const ui = {
     'nav.about': 'About',
     'nav.contact': 'Contact',
     'nav.toggle': 'Toggle navigation menu',
+    'nav.skip': 'Skip to main content',
+    'a11y.newTab': '(opens in new tab)',
 
     // Home
     'home.greeting': "Hi, I'm",
