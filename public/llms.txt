@@ -35,7 +35,7 @@ TypeScript, JavaScript, Swift, Kotlin, React, Next.js, Angular, SwiftUI, UIKit, 
 - **Zara iOS** (Acid Tango — Inditex): Desarrollo de nuevas funcionalidades y mejoras en el flujo de checkout de la app iOS de Zara. Implementación de Swift Package Modules (SPM) para aislar lógica de negocio y reutilizarla en otros proyectos de Inditex. Stack: Swift, SwiftUI, UIKit.
 - **Samsung Unfear** (Acid Tango — Samsung): Aplicación Android para personas con Trastorno del Espectro Autista (TEA) que gestiona la cancelación de ruido de los auriculares Galaxy Buds ante sonidos fuertes. Stack: Kotlin, Jetpack Compose.
 - **Backoffices web** (Acid Tango): Herramientas de gestión interna para clientes. Enfoque en accesibilidad, rendimiento y optimización de peticiones mediante caché. Stack: Next.js, TypeScript, React.
-- **adriangg.dev**: Portfolio personal bilingüe (ES/EN). Stack: Astro 5, TypeScript, Tailwind CSS 4, Cloudflare Workers. https://github.com/Adriangar99
+- **adriangg.dev**: Portfolio personal bilingüe (ES/EN). Stack: Astro 5, TypeScript, Tailwind CSS 4, Cloudflare Workers. https://github.com/Adriangar99/adriangg
 - **localizations-manager**: Herramienta de gestión de localizaciones para proyectos iOS. Stack: Swift. https://github.com/Adriangar99/localizations-manager
 
 ## Contacto
