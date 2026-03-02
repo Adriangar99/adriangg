@@ -37,7 +37,7 @@ const altHref = altLang === 'en'
   : basePath;
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-neutral-950/80 backdrop-blur-md">
+<header class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-neutral-950/90 backdrop-blur-md">
   <nav class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4" aria-label="Main navigation">
     <a href={lang === 'en' ? '/en/' : '/'} class="font-mono text-sm font-semibold text-white transition-colors hover:text-purple-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500 rounded">
       adriangg.dev
@@ -68,7 +68,7 @@ const altHref = altLang === 'en'
       <a
         href={altHref}
         aria-label={`Switch to ${altLang === 'en' ? 'English' : 'Español'}`}
-        class="font-mono text-xs text-neutral-500 transition-colors hover:text-white border border-white/10 rounded px-2 py-1 hover:border-white/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
+        class="font-mono text-xs text-neutral-400 transition-colors hover:text-white border border-white/10 rounded px-2 py-1 hover:border-white/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
       >
         {altLang === 'en' ? 'EN' : 'ES'}
       </a>
@@ -116,7 +116,7 @@ const altHref = altLang === 'en'
       <a
         href={altHref}
         aria-label={`Switch to ${altLang === 'en' ? 'English' : 'Español'}`}
-        class="font-mono text-xs text-neutral-500 transition-colors hover:text-white rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
+        class="font-mono text-xs text-neutral-400 transition-colors hover:text-white rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
       >
         {altLang === 'en' ? '🌐 English' : '🌐 Español'}
       </a>
