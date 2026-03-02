@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "cp dist/en/404/index.html dist/en/404.html",
     "preview": "astro preview",
     "astro": "astro"
   },

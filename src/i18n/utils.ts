@@ -12,6 +12,13 @@ export function useTranslations(lang: Lang) {
   };
 }
 
+export function localizeHref(lang: Lang, path: string): string {
+  if (lang === 'en') {
+    return path === '/' ? '/en/' : `/en${path}`;
+  }
+  return path;
+}
+
 export function getAlternateUrls(url: URL, site: URL): { lang: Lang; href: string }[] {
   // Remove locale prefix if present to get the path segment
   const parts = url.pathname.split('/').filter(Boolean);

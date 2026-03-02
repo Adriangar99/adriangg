@@ -22,10 +22,12 @@ Use `bun run <script>` for all package.json scripts:
 
 ```bash
 bun run dev        # Start local dev server at localhost:4321 (hot reload)
-bun run build      # Build static site to ./dist/
+bun run build      # Build static site to ./dist/ (postbuild copies dist/en/404.html)
 bun run preview    # Serve the built ./dist/ locally for verification
 bun run astro      # Run Astro CLI directly (e.g. bun run astro --help)
 ```
+
+The `postbuild` script runs automatically after `bun run build`. It copies `dist/en/404/index.html` → `dist/en/404.html` so Cloudflare Workers' `not_found_handling: "404-page"` serves the English 404 page for unmatched `/en/*` routes (Astro only flat-files `src/pages/404.astro`, not subdirectory 404s).
 
 ### Type Checking
 
@@ -69,15 +71,33 @@ The Wrangler config (`wrangler.jsonc`) serves `./dist/` as static assets with `4
     │   ├── Header.astro
     │   ├── Footer.astro
     │   ├── SEO.astro
-    │   └── ProjectCard.astro
+    │   ├── ProjectCard.astro
+    │   └── pages/         # Full-page components shared between ES and EN routes
+    │       ├── HomePage.astro
+    │       ├── AboutPage.astro
+    │       ├── ProjectsPage.astro
+    │       ├── ContactPage.astro
+    │       └── NotFoundPage.astro
+    ├── data/              # Typed bilingual content (call getX(lang) helpers)
+    │   ├── about.ts       # getSkills(lang), getExperience(lang), getEducation(lang)
+    │   └── projects.ts    # getClientProjects(lang), getPersonalProjects(lang)
+    ├── i18n/              # Internationalisation utilities
+    │   ├── ui.ts          # Translation strings keyed by language
+    │   └── utils.ts       # getLangFromUrl(url), useTranslations(lang), localizeHref(lang, path)
     ├── layouts/           # Page layout wrappers (PascalCase filenames)
     │   └── Layout.astro   # Main HTML shell: SEO, Header, <slot />, Footer, JSON-LD
     ├── pages/             # File-based routing (lowercase filenames)
-    │   ├── index.astro    # /
-    │   ├── about.astro    # /about
-    │   ├── projects.astro # /projects
-    │   ├── contact.astro  # /contact
-    │   └── 404.astro      # /404
+    │   ├── index.astro    # / → thin wrapper around HomePage.astro
+    │   ├── about.astro    # /about → thin wrapper around AboutPage.astro
+    │   ├── projects.astro # /projects → thin wrapper around ProjectsPage.astro
+    │   ├── contact.astro  # /contact → thin wrapper around ContactPage.astro
+    │   ├── 404.astro      # /404 → thin wrapper around NotFoundPage.astro
+    │   └── en/            # English locale routes (mirrors root pages)
+    │       ├── index.astro
+    │       ├── about.astro
+    │       ├── projects.astro
+    │       ├── contact.astro
+    │       └── 404.astro
     └── styles/
         └── global.css     # Single line: @import "tailwindcss";
 ```
@@ -234,7 +254,7 @@ Always use `target="_blank" rel="noopener noreferrer"` for links that open in a 
 
 ## Adding Content
 
-- **New page**: add a `.astro` file to `src/pages/` (lowercase name), wrap content in `<Layout>`, add a nav link in `Header.astro`.
+- **New page**: add a `.astro` file to `src/pages/` (lowercase name) and a matching one in `src/pages/en/`, create a corresponding `*Page.astro` component in `src/components/pages/` that calls `getLangFromUrl(Astro.url)` internally, wrap it in `<Layout>`, and add a nav link in `Header.astro`.
 - **New component**: add a PascalCase `.astro` file to `src/components/`, define an `interface Props` if the component accepts props.
-- **New project**: add an entry to the `projects` array in `src/pages/projects.astro`.
-- **New skill**: add to the `skills` array in `src/pages/about.astro`.
+- **New project**: add entries to `getClientProjects(lang)` or `getPersonalProjects(lang)` in `src/data/projects.ts` with bilingual content for both `'es'` and `'en'`.
+- **New skill**: add to the `getSkills(lang)` return value in `src/data/about.ts`.
