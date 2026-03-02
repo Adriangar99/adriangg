@@ -24,7 +24,7 @@ Juan Adrián García García es un desarrollador de software con más de 5 años
 
 ## Formación
 
-- CIFP César Manrique (2018–2020): Técnico Superior en Desarrollo de Aplicaciones Web / Multiplataforma.
+- CIFP César Manrique (2018–2020): CFGS Desarrollo de Aplicaciones Web.
 
 ## Stack tecnológico
 
@@ -41,6 +41,55 @@ TypeScript, JavaScript, Swift, Kotlin, React, Next.js, Angular, SwiftUI, UIKit, 
 ## Contacto
 
 - GitHub: https://github.com/Adriangar99
-- LinkedIn: https://linkedin.com/in/juan-adrian-garcia-garcia
+- LinkedIn: https://www.linkedin.com/in/juan-adrian-garcia-garcia
 - Email: adriangargar99@gmail.com
 - Sitio: https://adriangg.dev
+
+---
+
+# Juan Adrián García García — adriangg.dev (English)
+
+## Who I am
+
+Juan Adrián García García is a software developer with over 5 years of experience, based in Tenerife, Spain. Currently working at Acid Tango S.L. as a Software Developer. This site is a personal portfolio showcasing projects, professional experience and contact information.
+
+## Pages
+
+- / — Home: introduction and highlights (Spanish)
+- /about — About: bio, work experience, education and tech stack
+- /projects — Projects: selection of personal and professional projects
+- /contact — Contact: links to get in touch
+- /en/ — Home (English version)
+- /en/about — About (English version)
+- /en/projects — Projects (English version)
+- /en/contact — Contact (English version)
+
+## Professional experience
+
+- **Acid Tango S.L.** (Dec. 2021 – Present): Development of the Zara (Inditex) iOS app with Swift/SwiftUI/UIKit and SPMs. Contribution to Samsung Unfear for Android with Kotlin and Jetpack Compose. Frontend of web backoffices with Next.js. Applies DDD, TDD and best practices.
+- **TECH Universidad Tecnológica** (Oct. 2021 – Dec. 2021): Internal web applications with Angular, TypeScript, Node.js.
+- **Itop Consulting** (Sep. 2020 – Oct. 2021): Micro frontends with Webpack 5 Module Federation, microservices, React, Node.js, GraphQL, NestJS, PostgreSQL.
+- **Itop Consulting (Internship)** (Jul. 2020 – Aug. 2020): Professional internship in web development.
+
+## Education
+
+- CIFP César Manrique (2018–2020): Higher Technician in Web Application Development.
+
+## Tech stack
+
+TypeScript, JavaScript, Swift, Kotlin, React, Next.js, Angular, SwiftUI, UIKit, Jetpack Compose, Node.js, NestJS, .NET Core, GraphQL, PostgreSQL, Git, Docker, AWS, CI/CD, Cloudflare, Vite, TDD, DDD, XCTest, Swift Testing, Jest, Vitest, Playwright, Cypress.
+
+## Featured projects
+
+- **Zara iOS** (Acid Tango — Inditex): New feature development and checkout flow improvements for the Zara iOS app. Implementation of Swift Package Modules (SPM) to isolate business logic and reuse it across other Inditex projects. Stack: Swift, SwiftUI, UIKit.
+- **Samsung Unfear** (Acid Tango — Samsung): Android application for people with Autism Spectrum Disorder (ASD) that manages Galaxy Buds noise cancellation when encountering loud sounds. Stack: Kotlin, Jetpack Compose.
+- **Web backoffices** (Acid Tango): Internal client management tools. Focus on accessibility, performance and request optimisation through caching. Stack: Next.js, TypeScript, React.
+- **adriangg.dev**: Bilingual personal portfolio (ES/EN). Stack: Astro 5, TypeScript, Tailwind CSS 4, Cloudflare Workers. https://github.com/Adriangar99/adriangg
+- **localizations-manager**: Localisation management tool for iOS projects. Stack: Swift. https://github.com/Adriangar99/localizations-manager
+
+## Contact
+
+- GitHub: https://github.com/Adriangar99
+- LinkedIn: https://www.linkedin.com/in/juan-adrian-garcia-garcia
+- Email: adriangargar99@gmail.com
+- Site: https://adriangg.dev

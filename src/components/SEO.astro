@@ -29,6 +29,8 @@ const alternates = Astro.site ? getAlternateUrls(Astro.url, Astro.site) : [];
 <!-- Primary meta -->
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
+<meta name="author" content="Juan Adrián García García" />
+<meta name="theme-color" content="#0a0a0a" />
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Hreflang alternates -->
@@ -47,7 +49,7 @@ const alternates = Astro.site ? getAlternateUrls(Astro.url, Astro.site) : [];
 <meta property="og:locale" content={ogLocale} />
 
 <!-- Twitter / X Cards -->
-<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:card" content={absoluteImage ? 'summary_large_image' : 'summary'} />
 <meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />

@@ -8,9 +8,11 @@ interface Props {
   image?: string;
   viewLabel?: string;
   newTabLabel?: string;
+  techLabel?: string;
+  screenshotLabel?: string;
 }
 
-const { title, description, url, company, tags = [], image, viewLabel = 'View project', newTabLabel = '(opens in new tab)' } = Astro.props;
+const { title, description, url, company, tags = [], image, viewLabel = 'View project', newTabLabel = '(opens in new tab)', techLabel = 'Technologies used', screenshotLabel = 'Screenshot of' } = Astro.props;
 ---
 
 <article class:list={[
@@ -20,7 +22,7 @@ const { title, description, url, company, tags = [], image, viewLabel = 'View pr
   {image && (
     <img
       src={image}
-      alt={`Screenshot of ${title}`}
+      alt={`${screenshotLabel} ${title}`}
       class="w-full rounded-lg object-cover aspect-video"
       loading="lazy"
     />
@@ -38,7 +40,7 @@ const { title, description, url, company, tags = [], image, viewLabel = 'View pr
   <p class="text-sm text-neutral-400 leading-relaxed">{description}</p>
 
   {tags.length > 0 && (
-    <ul class="flex flex-wrap gap-2" role="list" aria-label="Technologies used">
+    <ul class="flex flex-wrap gap-2" role="list" aria-label={techLabel}>
       {tags.map((tag) => (
         <li>
           <span class="rounded-full border border-white/10 px-2.5 py-0.5 text-xs text-neutral-400 font-mono">

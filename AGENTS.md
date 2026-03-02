@@ -179,7 +179,7 @@ The Wrangler config (`wrangler.jsonc`) serves `./dist/` as static assets with `4
   - Primary text: `white`
   - Secondary text: `neutral-300`, `neutral-400`
   - Muted/subtle text: `neutral-500`, `neutral-600`
-  - Accent: `indigo-400`, `indigo-500`, `indigo-600`
+  - Accent: `purple-300`, `purple-400`, `purple-500`, `purple-600`
   - Borders / dividers: `white/10`, `white/30`
   - Surface overlays: `white/5`, `white/8`
 - Responsive breakpoints: `sm:` and `lg:`.

@@ -22,15 +22,22 @@ const personSchema = {
   '@type': 'Person',
   name: 'Juan Adrián García García',
   url: 'https://adriangg.dev',
+  email: 'mailto:adriangargar99@gmail.com',
   sameAs: [
     'https://github.com/Adriangar99',
-    'https://linkedin.com/in/juan-adrian-garcia-garcia',
+    'https://www.linkedin.com/in/juan-adrian-garcia-garcia',
   ],
   jobTitle: 'Software Developer',
   description:
     lang === 'es'
       ? 'Desarrollador de software con experiencia en frontend, backend y desarrollo móvil.'
       : 'Software developer with experience in frontend, backend and mobile development.',
+  knowsAbout: [
+    'TypeScript', 'JavaScript', 'Swift', 'Kotlin',
+    'React', 'Next.js', 'Angular', 'SwiftUI', 'UIKit', 'Jetpack Compose',
+    'Node.js', 'NestJS', 'GraphQL', 'PostgreSQL',
+    'TDD', 'DDD', 'Accessibility', 'Web Performance',
+  ],
   worksFor: {
     '@type': 'Organization',
     name: 'Acid Tango S.L.',

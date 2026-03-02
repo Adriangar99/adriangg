@@ -17,6 +17,9 @@ export const ui = {
     'nav.toggle': 'Abrir menú de navegación',
     'nav.skip': 'Saltar al contenido principal',
     'a11y.newTab': '(abre en nueva pestaña)',
+    'a11y.techUsed': 'Tecnologías usadas',
+    'a11y.screenshotOf': 'Captura de pantalla de',
+    'a11y.switchTo': 'Switch to English',
 
     // Home
     'home.greeting': 'Hola, soy',
@@ -44,7 +47,6 @@ export const ui = {
     'about.skills.title': 'Habilidades',
     'about.experience.title': 'Experiencia',
     'about.education.title': 'Formación',
-    'about.experience.present': 'Presente',
     'about.languages.title': 'Idiomas',
     'about.languages.es': 'Español — Nativo',
     'about.languages.en': 'Inglés — Nivel medio-alto',
@@ -53,10 +55,12 @@ export const ui = {
     'projects.title': 'Proyectos',
     'projects.subtitle':
       'Una selección de proyectos personales y profesionales. Código abierto, experimentos y trabajos destacados.',
-    'projects.empty': 'Próximamente.',
     'projects.view': 'Ver proyecto',
     'projects.professional': 'Proyectos profesionales',
     'projects.personal': 'Proyectos personales',
+
+    // Home highlights
+    'home.highlights.title': 'Destacados',
 
     // Contact
     'contact.title': 'Contacto',
@@ -64,7 +68,6 @@ export const ui = {
       '¿Tienes un proyecto en mente, una pregunta o simplemente quieres ponerte en contacto? No dudes en escribir.',
     'contact.links.title': 'Puedes encontrarme aquí',
     'contact.response': 'Respondo habitualmente en 24–48 horas.',
-    'contact.email': 'adriangargar99@gmail.com',
 
     // Footer
     'footer.built': 'Desarrollado con',
@@ -101,6 +104,9 @@ export const ui = {
     'nav.toggle': 'Toggle navigation menu',
     'nav.skip': 'Skip to main content',
     'a11y.newTab': '(opens in new tab)',
+    'a11y.techUsed': 'Technologies used',
+    'a11y.screenshotOf': 'Screenshot of',
+    'a11y.switchTo': 'Cambiar a Español',
 
     // Home
     'home.greeting': "Hi, I'm",
@@ -128,7 +134,6 @@ export const ui = {
     'about.skills.title': 'Skills',
     'about.experience.title': 'Experience',
     'about.education.title': 'Education',
-    'about.experience.present': 'Present',
     'about.languages.title': 'Languages',
     'about.languages.es': 'Spanish — Native',
     'about.languages.en': 'English — Upper intermediate',
@@ -137,10 +142,12 @@ export const ui = {
     'projects.title': 'Projects',
     'projects.subtitle':
       'A selection of personal and professional projects. Open source, experiments and work I am proud of.',
-    'projects.empty': 'Coming soon.',
     'projects.view': 'View project',
     'projects.professional': 'Professional projects',
     'projects.personal': 'Personal projects',
+
+    // Home highlights
+    'home.highlights.title': 'Quick highlights',
 
     // Contact
     'contact.title': 'Contact',
@@ -148,7 +155,6 @@ export const ui = {
       'Have a project in mind, a question, or just want to say hello? Feel free to reach out.',
     'contact.links.title': 'Find me here',
     'contact.response': 'I typically respond within 24–48 hours.',
-    'contact.email': 'adriangargar99@gmail.com',
 
     // Footer
     'footer.built': 'Built with',
