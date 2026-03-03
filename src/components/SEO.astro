@@ -7,6 +7,7 @@ interface Props {
   image?: string;
   type?: 'website' | 'article';
   canonicalURL?: string;
+  noIndex?: boolean;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   image,
   type = 'website',
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  noIndex = false,
 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
@@ -22,6 +24,7 @@ const siteName = 'Juan Adrián García García — adriangg.dev';
 const fullTitle = `${title} | ${siteName}`;
 const absoluteImage = image ? new URL(image, Astro.site).href : undefined;
 const ogLocale = lang === 'es' ? 'es_ES' : 'en_US';
+const altOgLocale = lang === 'es' ? 'en_US' : 'es_ES';
 
 const alternates = Astro.site ? getAlternateUrls(Astro.url, Astro.site) : [];
 ---
@@ -31,6 +34,7 @@ const alternates = Astro.site ? getAlternateUrls(Astro.url, Astro.site) : [];
 <meta name="description" content={description} />
 <meta name="author" content="Juan Adrián García García" />
 <meta name="theme-color" content="#0a0a0a" />
+<meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow'} />
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Hreflang alternates -->
@@ -45,15 +49,22 @@ const alternates = Astro.site ? getAlternateUrls(Astro.url, Astro.site) : [];
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 {absoluteImage && <meta property="og:image" content={absoluteImage} />}
+{absoluteImage && <meta property="og:image:width" content="1200" />}
+{absoluteImage && <meta property="og:image:height" content="630" />}
+{absoluteImage && <meta property="og:image:alt" content={description} />}
 <meta property="og:site_name" content={siteName} />
 <meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={altOgLocale} />
 
 <!-- Twitter / X Cards -->
 <meta name="twitter:card" content={absoluteImage ? 'summary_large_image' : 'summary'} />
+<meta name="twitter:site" content="@adriangar99_" />
+<meta name="twitter:creator" content="@adriangar99_" />
 <meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
 {absoluteImage && <meta name="twitter:image" content={absoluteImage} />}
+{absoluteImage && <meta name="twitter:image:alt" content={description} />}
 
 <!-- Sitemap discovery -->
 <link rel="sitemap" href="/sitemap-index.xml" />

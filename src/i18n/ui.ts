@@ -50,6 +50,7 @@ export const ui = {
     'about.languages.title': 'Idiomas',
     'about.languages.es': 'Español — Nativo',
     'about.languages.en': 'Inglés — Nivel medio-alto',
+    'about.cta.projects': 'Ver mis proyectos',
 
     // Projects
     'projects.title': 'Proyectos',
@@ -58,6 +59,7 @@ export const ui = {
     'projects.view': 'Ver proyecto',
     'projects.professional': 'Proyectos profesionales',
     'projects.personal': 'Proyectos personales',
+    'projects.cta.contact': '¿Te interesa colaborar? Escríbeme',
 
     // Home highlights
     'home.highlights.title': 'Destacados',
@@ -137,6 +139,7 @@ export const ui = {
     'about.languages.title': 'Languages',
     'about.languages.es': 'Spanish — Native',
     'about.languages.en': 'English — Upper intermediate',
+    'about.cta.projects': 'View my projects',
 
     // Projects
     'projects.title': 'Projects',
@@ -145,6 +148,7 @@ export const ui = {
     'projects.view': 'View project',
     'projects.professional': 'Professional projects',
     'projects.personal': 'Personal projects',
+    'projects.cta.contact': 'Interested in working together? Get in touch',
 
     // Home highlights
     'home.highlights.title': 'Quick highlights',

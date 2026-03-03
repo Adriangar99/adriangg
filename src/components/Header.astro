@@ -6,10 +6,11 @@ const t = useTranslations(lang);
 
 const currentPath = Astro.url.pathname;
 
-// Strip locale prefix to get the base path
-const basePath = lang === 'en'
+// Strip locale prefix and trailing slash to get the base path
+const stripped = lang === 'en'
   ? currentPath.replace(/^\/en/, '') || '/'
   : currentPath;
+const basePath = stripped === '/' ? '/' : stripped.replace(/\/$/, '');
 
 const navLinks = [
   { base: '/', labelKey: 'nav.home' as const },
@@ -18,12 +19,15 @@ const navLinks = [
   { base: '/contact', labelKey: 'nav.contact' as const },
 ];
 
-// Build locale-aware hrefs
-const localizedLinks = navLinks.map(({ base, labelKey }) => ({
-  href: lang === 'en' ? (base === '/' ? '/en/' : `/en${base}`) : base,
-  label: t(labelKey),
-  base,
-}));
+// Build locale-aware hrefs (with trailing slash)
+const localizedLinks = navLinks.map(({ base, labelKey }) => {
+  const trailingBase = base === '/' ? '/' : `${base}/`;
+  return {
+    href: lang === 'en' ? (base === '/' ? '/en/' : `/en${trailingBase}`) : trailingBase,
+    label: t(labelKey),
+    base,
+  };
+});
 
 function isActive(base: string) {
   if (base === '/') return basePath === '/';
@@ -32,9 +36,10 @@ function isActive(base: string) {
 
 // Alternate language switcher URL
 const altLang = lang === 'es' ? 'en' : 'es';
+const altBasePath = basePath === '/' ? '/' : `${basePath}/`;
 const altHref = altLang === 'en'
-  ? (basePath === '/' ? '/en/' : `/en${basePath}`)
-  : basePath;
+  ? (basePath === '/' ? '/en/' : `/en${altBasePath}`)
+  : altBasePath;
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-neutral-950/90 backdrop-blur-md">

@@ -13,21 +13,21 @@ export function useTranslations(lang: Lang) {
 }
 
 export function localizeHref(lang: Lang, path: string): string {
+  const trailingPath = path.endsWith('/') ? path : `${path}/`;
   if (lang === 'en') {
-    return path === '/' ? '/en/' : `/en${path}`;
+    return trailingPath === '/' ? '/en/' : `/en${trailingPath}`;
   }
-  return path;
+  return trailingPath;
 }
 
 export function getAlternateUrls(url: URL, site: URL): { lang: Lang; href: string }[] {
-  // Remove locale prefix if present to get the path segment
   const parts = url.pathname.split('/').filter(Boolean);
   const firstPart = parts[0];
   const pathWithoutLocale = firstPart in ui ? '/' + parts.slice(1).join('/') : url.pathname;
-  const cleanPath = pathWithoutLocale === '/' ? '' : pathWithoutLocale;
+  const cleanPath = pathWithoutLocale === '/' ? '/' : pathWithoutLocale.replace(/\/?$/, '/');
 
   return [
-    { lang: 'es', href: new URL(cleanPath || '/', site).href },
-    { lang: 'en', href: new URL('/en' + (cleanPath || '/'), site).href },
+    { lang: 'es', href: new URL(cleanPath, site).href },
+    { lang: 'en', href: new URL(`/en${cleanPath}`, site).href },
   ];
 }

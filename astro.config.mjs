@@ -6,8 +6,10 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://adriangg.dev',
+  trailingSlash: 'always',
   integrations: [
     sitemap({
+      filter: (page) => !page.includes('/404'),
       i18n: {
         defaultLocale: 'es',
         locales: {

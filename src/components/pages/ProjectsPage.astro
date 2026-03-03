@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ProjectCard from '../ProjectCard.astro';
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations, localizeHref } from '../../i18n/utils';
 import { getClientProjects, getPersonalProjects } from '../../data/projects';
 
 const lang = getLangFromUrl(Astro.url);
@@ -64,5 +64,19 @@ const personalProjects = getPersonalProjects(lang);
         ))}
       </ul>
     </section>
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <a
+        href={localizeHref(lang, '/contact')}
+        class="inline-flex items-center gap-2 rounded-lg border border-white/10 px-5 py-2.5 text-sm font-medium text-neutral-300 transition-colors hover:border-white/30 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
+      >
+        {t('projects.cta.contact')}
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
   </section>
 </Layout>

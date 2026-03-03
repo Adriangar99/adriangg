@@ -10,22 +10,33 @@ interface Props {
   description: string;
   image?: string;
   type?: 'website' | 'article';
+  noJsonLd?: boolean;
+  noIndex?: boolean;
 }
 
-const { title, description, image, type } = Astro.props;
+const { title, description, image, type, noJsonLd = false, noIndex = false } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const htmlLang = lang === 'es' ? 'es-ES' : 'en-US';
+
+// Determine current page path for breadcrumbs
+const pathname = Astro.url.pathname;
+const isHome = pathname === '/' || pathname === '/en/' || pathname === '/en';
+const is404 = pathname.includes('/404');
+const showBreadcrumbs = !isHome && !is404;
 
 // JSON-LD structured data
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': 'https://adriangg.dev/#person',
   name: 'Juan Adrián García García',
   url: 'https://adriangg.dev',
   email: 'mailto:adriangargar99@gmail.com',
   sameAs: [
     'https://github.com/Adriangar99',
     'https://www.linkedin.com/in/juan-adrian-garcia-garcia',
+    'https://x.com/adriangar99_',
   ],
   jobTitle: 'Software Developer',
   description:
@@ -50,6 +61,7 @@ const personSchema = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': 'https://adriangg.dev/#website',
   name: 'Juan Adrián García García — adriangg.dev',
   url: 'https://adriangg.dev',
   description:
@@ -57,28 +69,51 @@ const websiteSchema = {
       ? 'Portfolio personal de Juan Adrián García García: proyectos, experiencia y contacto.'
       : 'Personal portfolio of Juan Adrián García García: projects, experience and contact.',
   author: {
-    '@type': 'Person',
-    name: 'Juan Adrián García García',
+    '@id': 'https://adriangg.dev/#person',
   },
   inLanguage: lang === 'es' ? 'es-ES' : 'en-US',
 };
+
+// BreadcrumbList for inner pages (not home, not 404)
+const breadcrumbSchema = showBreadcrumbs ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: lang === 'es' ? 'Inicio' : 'Home',
+      item: lang === 'en' ? 'https://adriangg.dev/en/' : 'https://adriangg.dev/',
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: title,
+      item: new URL(Astro.url.pathname, Astro.site).href,
+    },
+  ],
+} : null;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicons: replace default Astro rocket with custom branded icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+    <!-- Add a 180x180 apple-touch-icon.png to public/ for iOS home screen -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO component handles title, description, OG, Twitter, hreflang, sitemap link -->
-    <SEO title={title} description={description} image={image} type={type} />
+    <SEO title={title} description={description} image={image} type={type} noIndex={noIndex} />
 
     <!-- JSON-LD Structured Data -->
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    {!noJsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />}
+    {!noJsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />}
+    {!noJsonLd && breadcrumbSchema && <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
   </head>
 
   <body class="bg-neutral-950 text-neutral-100 antialiased">

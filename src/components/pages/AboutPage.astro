@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations, localizeHref } from '../../i18n/utils';
 import { getSkills, getExperience, getEducation } from '../../data/about';
 
 const lang = getLangFromUrl(Astro.url);
@@ -114,5 +114,19 @@ const education = getEducation(lang);
         ))}
       </ol>
     </section>
+
+    <!-- CTA -->
+    <div class="mt-16 text-center">
+      <a
+        href={localizeHref(lang, '/projects')}
+        class="inline-flex items-center gap-2 rounded-lg bg-purple-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-500"
+      >
+        {t('about.cta.projects')}
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
   </section>
 </Layout>
