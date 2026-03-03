@@ -23,18 +23,22 @@ export interface EducationEntry {
 
 const skills: Record<Lang, SkillGroup[]> = {
   es: [
-    { category: 'Lenguajes', items: ['TypeScript', 'JavaScript', 'Swift', 'Kotlin', 'HTML', 'CSS', 'SQL'] },
-    { category: 'Frontend', items: ['React', 'Next.js', 'Angular', 'SwiftUI', 'UIKit', 'Jetpack Compose'] },
-    { category: 'Backend', items: ['Node.js', 'NestJS', '.NET Core', 'GraphQL', 'PostgreSQL'] },
-    { category: 'Herramientas', items: ['Git', 'Docker', 'AWS', 'CI/CD', 'Cloudflare', 'Vite', 'Webpack', 'Storybook'] },
-    { category: 'Testing', items: ['TDD', 'XCTest', 'Swift Testing', 'Jest', 'Vitest', 'Playwright', 'Cypress'] },
+    { category: 'Lenguajes', items: ['TypeScript', 'JavaScript', 'Swift', 'Kotlin', 'Java', 'HTML', 'CSS', 'SQL'] },
+    { category: 'Frontend', items: ['React', 'Next.js', 'Angular', 'React Native', 'Astro', 'SwiftUI', 'UIKit', 'Jetpack Compose', 'Kotlin Multiplatform', 'Compose Multiplatform'] },
+    { category: 'Backend', items: ['Node.js', 'NestJS', 'Express', 'Spring Boot', '.NET Core', 'GraphQL', 'REST', 'Microservicios'] },
+    { category: 'Datos', items: ['PostgreSQL', 'MongoDB', 'Kafka', 'SQL Server', 'MySQL'] },
+    { category: 'Herramientas', items: ['Git', 'Docker', 'AWS', 'CI/CD', 'Kubernetes', 'GitHub Actions', 'Cloudflare', 'Vite', 'Webpack', 'Storybook'] },
+    { category: 'Testing', items: ['XCTest', 'Swift Testing', 'Jest', 'Vitest', 'Playwright', 'Cypress'] },
+    { category: 'Metodologías', items: ['TDD', 'DDD', 'Clean Architecture', 'Arquitectura Hexagonal', 'SOLID', 'Scrum', 'Kanban', 'XP'] },
   ],
   en: [
-    { category: 'Languages', items: ['TypeScript', 'JavaScript', 'Swift', 'Kotlin', 'HTML', 'CSS', 'SQL'] },
-    { category: 'Frontend', items: ['React', 'Next.js', 'Angular', 'SwiftUI', 'UIKit', 'Jetpack Compose'] },
-    { category: 'Backend', items: ['Node.js', 'NestJS', '.NET Core', 'GraphQL', 'PostgreSQL'] },
-    { category: 'Tools', items: ['Git', 'Docker', 'AWS', 'CI/CD', 'Cloudflare', 'Vite', 'Webpack', 'Storybook'] },
-    { category: 'Testing', items: ['TDD', 'XCTest', 'Swift Testing', 'Jest', 'Vitest', 'Playwright', 'Cypress'] },
+    { category: 'Languages', items: ['TypeScript', 'JavaScript', 'Swift', 'Kotlin', 'Java', 'HTML', 'CSS', 'SQL'] },
+    { category: 'Frontend', items: ['React', 'Next.js', 'Angular', 'React Native', 'Astro', 'SwiftUI', 'UIKit', 'Jetpack Compose', 'Kotlin Multiplatform', 'Compose Multiplatform'] },
+    { category: 'Backend', items: ['Node.js', 'NestJS', 'Express', 'Spring Boot', '.NET Core', 'GraphQL', 'REST', 'Microservices'] },
+    { category: 'Data', items: ['PostgreSQL', 'MongoDB', 'Kafka', 'SQL Server', 'MySQL'] },
+    { category: 'Tools', items: ['Git', 'Docker', 'AWS', 'CI/CD', 'Kubernetes', 'GitHub Actions', 'Cloudflare', 'Vite', 'Webpack', 'Storybook'] },
+    { category: 'Testing', items: ['XCTest', 'Swift Testing', 'Jest', 'Vitest', 'Playwright', 'Cypress'] },
+    { category: 'Practices', items: ['TDD', 'DDD', 'Clean Architecture', 'Hexagonal Architecture', 'SOLID', 'Scrum', 'Kanban', 'XP'] },
   ],
 };
 
