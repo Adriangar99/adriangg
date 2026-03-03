@@ -28,7 +28,7 @@ Juan Adrián García García es un desarrollador de software con más de 5 años
 
 ## Stack tecnológico
 
-TypeScript, JavaScript, Swift, Kotlin, React, Next.js, Angular, SwiftUI, UIKit, Jetpack Compose, Node.js, NestJS, .NET Core, GraphQL, PostgreSQL, Git, Docker, AWS, CI/CD, Cloudflare, Vite, TDD, DDD, XCTest, Swift Testing, Jest, Vitest, Playwright, Cypress.
+TypeScript, JavaScript, Swift, Kotlin, Java, React, Next.js, Angular, React Native, Astro, SwiftUI, UIKit, Jetpack Compose, Kotlin Multiplatform, Compose Multiplatform, Node.js, NestJS, Express, Spring Boot, .NET Core, GraphQL, REST, Microservicios, PostgreSQL, MongoDB, Kafka, SQL Server, MySQL, Git, Docker, AWS, CI/CD, Kubernetes, GitHub Actions, Cloudflare, Vite, XCTest, Swift Testing, Jest, Vitest, Playwright, Cypress, TDD, DDD, Clean Architecture, Arquitectura Hexagonal, SOLID, Scrum, Kanban, XP.
 
 ## Proyectos destacados
 
@@ -77,7 +77,7 @@ Juan Adrián García García is a software developer with over 5 years of experi
 
 ## Tech stack
 
-TypeScript, JavaScript, Swift, Kotlin, React, Next.js, Angular, SwiftUI, UIKit, Jetpack Compose, Node.js, NestJS, .NET Core, GraphQL, PostgreSQL, Git, Docker, AWS, CI/CD, Cloudflare, Vite, TDD, DDD, XCTest, Swift Testing, Jest, Vitest, Playwright, Cypress.
+TypeScript, JavaScript, Swift, Kotlin, Java, React, Next.js, Angular, React Native, Astro, SwiftUI, UIKit, Jetpack Compose, Kotlin Multiplatform, Compose Multiplatform, Node.js, NestJS, Express, Spring Boot, .NET Core, GraphQL, REST, Microservices, PostgreSQL, MongoDB, Kafka, SQL Server, MySQL, Git, Docker, AWS, CI/CD, Kubernetes, GitHub Actions, Cloudflare, Vite, XCTest, Swift Testing, Jest, Vitest, Playwright, Cypress, TDD, DDD, Clean Architecture, Hexagonal Architecture, SOLID, Scrum, Kanban, XP.
 
 ## Featured projects
 
